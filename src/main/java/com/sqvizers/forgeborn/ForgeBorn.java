@@ -6,6 +6,7 @@ import com.gregtechceu.gtceu.api.data.chemical.material.event.MaterialRegistryEv
 import com.gregtechceu.gtceu.api.data.chemical.material.registry.MaterialRegistry;
 import com.gregtechceu.gtceu.api.machine.MachineDefinition;
 import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
+import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 import com.gregtechceu.gtceu.api.sound.SoundEntry;
 
 import com.sqvizers.forgeborn.common.data.datagen.FBDatagen;
@@ -35,6 +36,8 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.concurrent.CompletableFuture;
 
+import static com.sqvizers.forgeborn.common.registry.FBRegistration.REGISTRATE;
+
 @Mod(ForgeBorn.MOD_ID)
 public class ForgeBorn {
 
@@ -59,8 +62,8 @@ public class ForgeBorn {
 
     public static void init(IEventBus bus) {
         FBCreativeModeTabs.init();
+        REGISTRATE.registerRegistrate();
         FBItems.init();
-        FBRegistration.REGISTRATE.registerRegistrate();
         FBDatagen.init();
         FBBlocks.init();
 
